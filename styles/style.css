@@ -1,1 +1,25 @@
-/*# sourceMappingURL=style.css.map */
+body {
+  background-color: black;
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 13px;
+}
+
+.navbar {
+  padding: 16px;
+}
+.navbar__link {
+  text-decoration: none;
+  font-size: 2.5rem;
+  cursor: text;
+  color: red;
+  font-weight: 500;
+}
+
+.main__poster-img {
+  height: 100%;
+  width: 100%;
+}
+.main__description-title {
+  font-weight: 500;
+}/*# sourceMappingURL=style.css.map */

@@ -17,15 +17,16 @@ class HackathonMovieApi{
         }
 
     }
-    async getMovieByType(movieType){
-
-    }
 }
+
+
+//EXAMPLE
 let movieApi= new HackathonMovieApi(API_KEY);
 async function searchMovie(mov){
     try{
-        let movie = await movieApi.getMovieByTitle(mov)
-        console.log(movie)
+        let response = await movieApi.getMovieByTitle(mov)
+   
+        console.log(response.data)
         
 
     }catch(err){
