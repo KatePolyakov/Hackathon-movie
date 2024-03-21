@@ -1,28 +1,9 @@
 import { HackathonMovieApi } from './movie-api.js';
 const API_KEY = '60383802';
 
+//find a div element ".comment" for comments
 const mainSection = document.querySelector('.main');
 const form = document.getElementById('search-form');
-// form.addEventListener('submit',  (e) => {
-//   e.preventDefault();
-//   mainSection.innerHTML=""
-//   console.log(`Search text is ${searchText}`);
-//   searchMovie(searchText);
-// })
-  
-console.log(`Search text is ${searchText}`);
-
-// const button = document.querySelector('.search-container__button');
-// console.log(button);
-// function searchFunction() {
-//   searchMovie(searchText);
-// }
-// button.addEventListener('onclick', () => {
-//   searchMovie(searchText);
-// });
-
-//find a div element ".comment" for comments
-
 
 //create a div element for first div
 const mainPosterFunction = (response) => {
@@ -77,21 +58,15 @@ async function searchMovie(mov) {
     let response = await movieApi.getMovieByTitle(mov);
     mainPosterFunction(response);
     mainDescriptionFunction(response);
-
-    console.log(response.data);
   } catch (err) {
     console.log(err);
   }
-  //searchMovie(searchText);
 }
 
-searchMovie('alice in wonderland');
-form.addEventListener('submit',  (e) => {
+searchMovie('friends');
+form.addEventListener('submit', (e) => {
   e.preventDefault();
-  mainSection.innerHTML=""
+  mainSection.innerHTML = '';
   const searchTexts = document.getElementById('searchInput').value;
-  console.log(`Search text is ${searchTexts}`);
   searchMovie(searchTexts);
-})
-// let foundMovie = document.getElementById('searchInput').value;
-//searchMovie(searchText);
+});
