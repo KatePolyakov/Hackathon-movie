@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Madimi-Regular";
+  src: url("../../assests/fonts/MadimiOne-Regular.ttf") format "truetype";
+  font-style: normal;
+}
 body {
   background-color: black;
   color: white;
@@ -9,8 +14,12 @@ body {
   padding: 16px;
 }
 .navbar__link {
+  font-family: "Madimi-Regular";
+  font-style: normal;
+  font-size: 1.5rem;
+  font-weight: 2rem;
+  line-height: 500;
   text-decoration: none;
-  font-size: 2.5rem;
   cursor: text;
   color: red;
   font-weight: 500;

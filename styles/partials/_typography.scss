@@ -1,0 +1,21 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+@font-face {
+  font-family: 'Madimi-Regular';
+  src: url('../../assests/fonts/MadimiOne-Regular.ttf') format ('truetype');
+  font-style: normal;
+}
+
+@mixin fonts-site-regular($font-size, $line-height, $font-weight) {
+  font-family: 'Madimi-Regular';
+  font-style: normal;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height: $line-height;
+}
+
+//mobile
+@mixin mobile-header-bold {
+  @include fonts-site-regular(1.5rem, 500, 2rem);
+}
