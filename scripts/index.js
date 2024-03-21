@@ -1,7 +1,28 @@
-import { HackathonMovieApi } from './movie.js';
+import { HackathonMovieApi } from './movie-api.js';
+const API_KEY = '60383802';
+
+const mainSection = document.querySelector('.main');
+const form = document.getElementById('search-form');
+// form.addEventListener('submit',  (e) => {
+//   e.preventDefault();
+//   mainSection.innerHTML=""
+//   console.log(`Search text is ${searchText}`);
+//   searchMovie(searchText);
+// })
+  
+console.log(`Search text is ${searchText}`);
+
+// const button = document.querySelector('.search-container__button');
+// console.log(button);
+// function searchFunction() {
+//   searchMovie(searchText);
+// }
+// button.addEventListener('onclick', () => {
+//   searchMovie(searchText);
+// });
 
 //find a div element ".comment" for comments
-const mainSection = document.querySelector('.main');
+
 
 //create a div element for first div
 const mainPosterFunction = (response) => {
@@ -50,7 +71,7 @@ const mainDescriptionFunction = (response) => {
   mainDescription.append(title, year, genre, plot, actors);
 };
 
-let movieApi = new HackathonMovieApi('60383802');
+let movieApi = new HackathonMovieApi(API_KEY);
 async function searchMovie(mov) {
   try {
     let response = await movieApi.getMovieByTitle(mov);
@@ -61,6 +82,16 @@ async function searchMovie(mov) {
   } catch (err) {
     console.log(err);
   }
+  //searchMovie(searchText);
 }
 
 searchMovie('alice in wonderland');
+form.addEventListener('submit',  (e) => {
+  e.preventDefault();
+  mainSection.innerHTML=""
+  const searchTexts = document.getElementById('searchInput').value;
+  console.log(`Search text is ${searchTexts}`);
+  searchMovie(searchTexts);
+})
+// let foundMovie = document.getElementById('searchInput').value;
+//searchMovie(searchText);
