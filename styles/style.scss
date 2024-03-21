@@ -118,3 +118,45 @@ body {
   background-color: $bright-red;
   border-color: $bright-red;
 }
+h2 {
+  padding: 1.5rem;
+  @include tablet {
+    padding: 1.5rem 2rem;
+  }
+
+  @include desktop {
+    padding: 2rem;
+  }
+}
+
+.added {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  text-align: center;
+  justify-content: center;
+
+  @include tablet {
+    padding: 1.5rem 2rem;
+  }
+
+  @include desktop {
+    padding: 2rem;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    &-poster {
+      width: 10rem;
+    }
+
+    &-name {
+      @include typography(1rem, 1.5rem);
+    }
+  }
+}
