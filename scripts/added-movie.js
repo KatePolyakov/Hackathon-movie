@@ -1,12 +1,9 @@
-import { mightSeeMovie } from './movie-api.js';
-// import { movieApi } from './index.js';
-const API_KEY = '60383802';
 
 //find a div element ".comment" for comments
-const addedSection = document.querySelector('.added');
-const form = document.getElementById('search-form');
+export const addedSection = document.querySelector('.added');
+// const form = document.getElementById('search-form');
 
-const addedFunction = (responseImg, responseName) => {
+export const addedFunction = (responseImg, responseName) => {
   //created container for one video
   const movieContainer = document.createElement('div');
   movieContainer.classList.add('added__container');
@@ -25,31 +22,4 @@ const addedFunction = (responseImg, responseName) => {
   movieContainer.append(moviePoster, movieName);
 };
 
-let addedMovieAPI = new mightSeeMovie(API_KEY);
-async function addedMovie(mov) {
-  try {
-    let response = await addedMovieAPI.getMovies(mov);
-    // let response = await movieApi.getMovies(mov);
 
-    
-    let array = response.data.Search;
-    let responseName = '';
-    let responseImg = '';
-
-    for (let i = 1; i < 6; i++) {
-      responseName = array[i].Title;
-      responseImg = array[i].Poster;
-      addedFunction(responseImg, responseName);
-    }
-  } catch (err) {
-    console.log(err);
-  }
-}
-
-addedMovie('friends');
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  addedSection.innerHTML = '';
-  const searchTexts = document.getElementById('searchInput').value;
-  addedMovie(searchTexts);
-});
