@@ -3,21 +3,21 @@
 
 @font-face {
   font-family: 'avenir';
-  src: url('../assets/AvenirNextLTPro-Regular.otf') format('otf');
+  src: url('../assets/Font/AvenirNextLTPro-Regular.otf') format('otf');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'avenir';
-  src: url('../assets/AvenirNextLTPro-Demi.otf') format('otf');
+  src: url('../assets/Font/AvenirNextLTPro-Demi.otf') format('otf');
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'avenir';
-  src: url('../assets/AvenirNextLTPro-Bold.otf') format('otf');
+  src: url('../assets/Font/AvenirNextLTPro-Bold.otf') format('otf');
   font-weight: 700;
   font-style: bold;
 }
@@ -25,9 +25,9 @@
 $font-path: "/fonts/";
 
 $avenir-font-family: 'avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$normal: 400;
-$medium: 600;
-$bold: 700;
+$font1: 400;
+$font2: 600;
+$font3: 700;
 
 $font-mobile: 13px;
 $font-tablet: 16px;

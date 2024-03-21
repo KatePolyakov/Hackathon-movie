@@ -1,10 +1,13 @@
 import { HackathonMovieApi } from './movie-api.js';
+import { addedFunction, addedSection } from './added-movie.js';
 import { rated } from './rated.js';
 const API_KEY = '60383802';
+const form = document.getElementById('search-form');
 
 //find a div element ".comment" for comments
 const mainSection = document.querySelector('.main');
-const form = document.getElementById('search-form');
+
+
 
 //create a div element for first div
 const mainPosterFunction = (response) => {
@@ -56,7 +59,7 @@ const mainDescriptionFunction = (response, srcRated) => {
   mainDescription.append(title, year, genre, plot, actors, rated);
 };
 
-export let movieApi = new HackathonMovieApi(API_KEY);
+let movieApi = new HackathonMovieApi(API_KEY);
 async function searchMovie(mov) {
   try {
     let response = await movieApi.getMovieByTitle(mov);
@@ -78,11 +81,34 @@ const dataRated = (response) => {
     }
   }
 };
-
+mainSection.innerHTML = '';
+addedSection.innerHTML = '';
 searchMovie('friends');
+addedMovie('friends');
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   mainSection.innerHTML = '';
   const searchTexts = document.getElementById('searchInput').value;
   searchMovie(searchTexts);
+  addedSection.innerHTML = '';
+  addedMovie(searchTexts);
 });
+
+async function addedMovie(mov) {
+  try {
+    let response = await movieApi.getMovieReccomendations(mov);
+    
+    let array = response.data.Search;
+    let responseName = '';
+    let responseImg = '';
+
+    for (let i = 1; i < 6; i++) {
+      responseName = array[i].Title;
+      responseImg = array[i].Poster;
+      addedFunction(responseImg, responseName);
+    }
+  } catch (err) {
+    console.log(err);
+  }
+}
+
