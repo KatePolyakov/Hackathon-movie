@@ -1,4 +1,5 @@
 import { mightSeeMovie } from './movie-api.js';
+// import { movieApi } from './index.js';
 const API_KEY = '60383802';
 
 //find a div element ".comment" for comments
@@ -28,6 +29,9 @@ let addedMovieAPI = new mightSeeMovie(API_KEY);
 async function addedMovie(mov) {
   try {
     let response = await addedMovieAPI.getMovies(mov);
+    // let response = await movieApi.getMovies(mov);
+
+    
     let array = response.data.Search;
     let responseName = '';
     let responseImg = '';

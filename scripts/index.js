@@ -1,4 +1,5 @@
 import { HackathonMovieApi } from './movie-api.js';
+import { rated } from './rated.js';
 const API_KEY = '60383802';
 
 //find a div element ".comment" for comments
@@ -22,7 +23,7 @@ const mainPosterFunction = (response) => {
 
 //create a div element for second div
 
-const mainDescriptionFunction = (response) => {
+const mainDescriptionFunction = (response, srcRated) => {
   const mainDescription = document.createElement('div');
   mainDescription.classList.add('main__description');
   mainSection.append(mainDescription);
@@ -49,19 +50,35 @@ const mainDescriptionFunction = (response) => {
   actors.classList.add('main__description-actors');
   actors.innerText = `Actors: ${response.data.Actors}`;
 
-  mainDescription.append(title, year, genre, plot, actors);
+  const rated = document.createElement('img');
+  rated.classList.add('main__rated');
+
+  mainDescription.append(title, year, genre, plot, actors, rated);
 };
 
-let movieApi = new HackathonMovieApi(API_KEY);
+export let movieApi = new HackathonMovieApi(API_KEY);
 async function searchMovie(mov) {
   try {
     let response = await movieApi.getMovieByTitle(mov);
+    console.log(response.data.Rated);
     mainPosterFunction(response);
     mainDescriptionFunction(response);
+    dataRated(response);
   } catch (err) {
     console.log(err);
   }
 }
+
+const dataRated = (response) => {
+  let responseRated = response.data.Rated;
+
+  for (let i = 0; i < rated.length; i++) {
+    if (responseRated == rated[i].name) {
+      let img = document.querySelector('.main__rated');
+      img.src = rated[i].src;
+    }
+  }
+};
 
 searchMovie('friends');
 form.addEventListener('submit', (e) => {

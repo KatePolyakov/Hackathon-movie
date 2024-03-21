@@ -6,7 +6,7 @@ export class HackathonMovieApi {
   }
   async getMovieByTitle(moviename) {
     try {
-      let movieResponse = axios.get(
+      let movieResponse = await axios.get(
         `${this.movieURL}?t=${moviename}&apiKey=${this.apiKey}&plot=full`,
       );
       return movieResponse;
@@ -14,6 +14,14 @@ export class HackathonMovieApi {
       console.log(error);
     }
   }
+  // async getMovies(moviename) {
+  //   try {
+  //     let movieResponse = await axios.get(`${this.movieURL}?s=${moviename}&apiKey=${this.apiKey}`);
+  //     return movieResponse;
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
 }
 
 export class mightSeeMovie {
@@ -24,11 +32,9 @@ export class mightSeeMovie {
   async getMovies(moviename) {
     try {
       let movieResponse = await axios.get(`${this.movieURL}?s=${moviename}&apiKey=${this.apiKey}`);
-      
       return movieResponse;
     } catch (error) {
       console.log(error);
     }
   }
 }
-
