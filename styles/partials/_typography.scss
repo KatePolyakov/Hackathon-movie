@@ -22,8 +22,13 @@
   font-style: normal;
 }
 
-@mixin typography($font-size, $line-height, $font-family) {
-  font-size: $font-size;
-  line-height: $line-height;
-  font-family: 'avenir';
-}
+$font-path: "/fonts/";
+
+$avenir-font-family: 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font1: 400;
+$font2: 600;
+$font3: 700;
+
+$font-mobile: 13px;
+$font-tablet: 16px;
+$font-desktop: 18px;

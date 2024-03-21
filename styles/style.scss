@@ -8,8 +8,8 @@
 }
 
 body {
-  background-color: black;
-  color: white;
+  background-color: $black;
+  color: $white;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 13px;
 }
@@ -34,7 +34,6 @@ body {
   }
 
   &__link {
-    //@include mobile-header-bold;
     font-size: 1.5rem;
     text-decoration: none;
     cursor: text;
@@ -103,7 +102,7 @@ body {
 .search-container__button {
   padding: 5px 10px;
   border: 2px solid $netflix-red;
-  color: #ffffff;
+  color: $white;
   background-color: $netflix-red;
   border-radius: 3px;
   cursor: pointer;
@@ -111,11 +110,11 @@ body {
 }
 
 .search-container__button:hover {
-  background-color: #ff3333;
-  border-color: #ff3333;
+  background-color: $light-red;
+  border-color: $light-red;
 }
 
 .search-container__button:active {
-  background-color: #ff1a1a;
-  border-color: #ff1a1a;
+  background-color: $bright-red;
+  border-color: $bright-red;
 }
