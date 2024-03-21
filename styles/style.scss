@@ -2,6 +2,11 @@
 @use 'partials/mixins' as *;
 @use 'partials/typography' as *;
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background-color: black;
   color: white;
@@ -10,36 +15,107 @@ body {
 }
 
 .navbar {
-  padding: 16px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+
+  @include tablet {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+  }
+
+  @include desktop {
+    padding: 2rem;
+  }
 
   &__link {
-    @include mobile-header-bold;
+    //@include mobile-header-bold;
+    font-size: 1.5rem;
     text-decoration: none;
     cursor: text;
-    color: red;
+    color: $netflix-red;
     font-weight: 500;
+
+    @include desktop {
+      font-size: 2.5rem;
+    }
   }
 }
 
 .main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+
+  @include tablet {
+    gap: 3rem;
+    display: flex;
+    flex-direction: row;
+    padding: 1.5rem 2rem;
+  }
+
+  @include desktop {
+    padding: 2rem;
+    gap: 3rem;
+  }
+
   &__poster {
     &-img {
-      height: 100%;
       width: 100%;
+      height: auto;
+
+      @include tablet {
+        width: 18rem;
+      }
     }
   }
 
   &__description {
     &-title {
-      font-weight: 500;
+      font-weight: 700;
+      font-size: 17px;
     }
     &-year {
+      padding: 5px 0 5px 0;
     }
     &-genre {
+      padding-bottom: 5px;
     }
     &-plot {
+      font-size: 16px;
+      padding: 10px 0 10px 0;
     }
     &-actors {
+      padding: 5px 0 5px 0;
     }
   }
+}
+.search-container__input {
+  padding: 5px 10px;
+}
+
+.search-container__button {
+  padding: 5px 10px;
+  border: 2px solid $netflix-red;
+  color: #ffffff;
+  background-color: $netflix-red;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.search-container__button:hover {
+  background-color: #ff3333;
+  border-color: #ff3333;
+}
+
+.search-container__button:active {
+  background-color: #ff1a1a;
+  border-color: #ff1a1a;
 }
