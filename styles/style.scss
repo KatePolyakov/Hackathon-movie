@@ -10,7 +10,7 @@
 body {
   background-color: $black;
   color: $white;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: $avenir-font-family;
   font-size: 13px;
 }
 
@@ -38,7 +38,7 @@ body {
     text-decoration: none;
     cursor: text;
     color: $netflix-red;
-    font-weight: 500;
+    font-weight: normal;
 
     @include desktop {
       font-size: 2.5rem;
@@ -77,7 +77,7 @@ body {
 
   &__description {
     &-title {
-      font-weight: 700;
+      font-weight: bold;
       font-size: 17px;
     }
     &-year {
@@ -118,6 +118,7 @@ body {
   background-color: $bright-red;
   border-color: $bright-red;
 }
+
 h2 {
   padding: 1.5rem;
   @include tablet {

@@ -14,14 +14,6 @@ export class HackathonMovieApi {
       console.log(error);
     }
   }
-  // async getMovies(moviename) {
-  //   try {
-  //     let movieResponse = await axios.get(`${this.movieURL}?s=${moviename}&apiKey=${this.apiKey}`);
-  //     return movieResponse;
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
 }
 
 export class mightSeeMovie {

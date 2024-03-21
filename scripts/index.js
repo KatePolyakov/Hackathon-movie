@@ -60,7 +60,6 @@ export let movieApi = new HackathonMovieApi(API_KEY);
 async function searchMovie(mov) {
   try {
     let response = await movieApi.getMovieByTitle(mov);
-    console.log(response.data.Rated);
     mainPosterFunction(response);
     mainDescriptionFunction(response);
     dataRated(response);
